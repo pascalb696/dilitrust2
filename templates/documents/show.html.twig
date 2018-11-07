@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Documents{% endblock %}
+
+{% block body %}
+    <h1>Documents</h1>
+	{% if error is defined %} 
+	{{ error }}
+	{% else %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ document.id }}</td>
+            </tr>
+            <tr>
+                <th>Document_name</th>
+                <td>{{ document.documentName }}</td>
+            </tr>
+            <tr>
+                <th>Upload_name</th>
+                <td>{{ document.uploadName }}</td>
+            </tr>
+            <tr>
+                <th>Creation_time</th>
+                <td>{{ document.creationTime ? document.creationTime|date('H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+        <a href="{{ path('documents_edit', {'id': document.id}) }}">edit</a>
+	    {{ include('documents/_delete_form.html.twig') }}
+	{% endif %}
+    <a href="{{ path('documents_index') }}">back to list</a>
+
+
+{% endblock %}

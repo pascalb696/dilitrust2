@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+{% block body %}
+	<a href="{{ path('logout') }}">Log out</a>
+    <h1>Login page</h1>
+    {% if error %}
+	    <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+    {% endif %}
+<form action="{{ path('login') }}" method="post">
+	<input type="text" name="_username" value="{{ last_username }}" placeholder="Name" />
+	<input type="password" name="_password"  value="" placeholder="Password" />
+	<button type="submit">Submit</button>
+</form>
+{% endblock %}

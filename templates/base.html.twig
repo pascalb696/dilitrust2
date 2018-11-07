@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/css/dropzone.css') }}" />
+        <style>
+		 .error { color: red }
+		</style>
+        {% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset('assets/js/dropzone.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+    </body>
+</html>
